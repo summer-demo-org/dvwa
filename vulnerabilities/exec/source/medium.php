@@ -1,8 +1,10 @@
 <?php
 
+require_once("../utils.php");
+
 if( isset( $_POST[ 'Submit' ]  ) ) {
 	// Get input
-	$target = $_REQUEST[ 'ip' ];
+	$target = simple_sanitize($_REQUEST[ 'ip' ]);
 
 	// Set blacklist
 	$substitutions = array(
@@ -11,7 +13,7 @@ if( isset( $_POST[ 'Submit' ]  ) ) {
 	);
 
 	// Remove any of the characters in the array (blacklist).
-	$target = str_replace( array_keys( $substitutions ), $substitutions, $target );
+	//$target = str_replace( array_keys( $substitutions ), $substitutions, $target );
 
 	// Determine OS and execute the ping command.
 	if( stristr( php_uname( 's' ), 'Windows NT' ) ) {

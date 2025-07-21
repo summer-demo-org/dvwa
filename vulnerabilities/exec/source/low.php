@@ -1,8 +1,10 @@
 <?php
 
+require_once("../utils.php");
+
 if( isset( $_POST[ 'Submit' ]  ) ) {
 	// Get input
-	$target = $_REQUEST[ 'ip' ];
+	$target = simple_sanitize($_REQUEST[ 'ip' ]);
 
 	// Determine OS and execute the ping command.
 	if( stristr( php_uname( 's' ), 'Windows NT' ) ) {

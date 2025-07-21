@@ -2,9 +2,9 @@
 
 if( isset( $_POST[ 'Submit' ] ) ) {
 	// Get input
-	$id = $_POST[ 'id' ];
+	$id = clean_input($_POST[ 'id' ]);
 
-	$id = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $id);
+	//$id = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $id);
 
 	switch ($_DVWA['SQLI_DB']) {
 		case MYSQL:
